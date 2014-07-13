@@ -13,37 +13,35 @@
 -(id)initWithSize:(CGSize)size {    
     if (self = [super initWithSize:size]) {
         /* Setup your scene here */
-        
-        self.backgroundColor = [SKColor colorWithRed:0.15 green:0.15 blue:0.3 alpha:1.0];
-        
-        SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
-        
-        myLabel.text = @"Hello, World!";
-        myLabel.fontSize = 30;
-        myLabel.position = CGPointMake(CGRectGetMidX(self.frame),
-                                       CGRectGetMidY(self.frame));
-        
-        [self addChild:myLabel];
+        self.backgroundColor = [SKColor whiteColor];
+		
+		// Add a physics body to the scene
+		self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame];
+		
+		// change gravity settings of the physics world
+		self.physicsWorld.gravity = CGVectorMake(0, 0);
+		
+		// Create a new sprite node from an image
+		SKSpriteNode *ball = [SKSpriteNode spriteNodeWithImageNamed:@"ball"];
+		
+		// Position the ball midway through the screen
+		CGPoint myPoint = CGPointMake(size.width / 2, size.height / 2);
+		ball.position = myPoint;
+		
+		ball.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:ball.frame.size.width / 2];
+		ball.physicsBody.friction = 0;
+		ball.physicsBody.linearDamping = 0;
+		ball.physicsBody.restitution = 1;
+		
+		// Add the sprite node to the scene
+		[self addChild:ball];
+		
+		// create the vector
+		CGVector ballKick = CGVectorMake(20, 20);
+		// apply the vector
+		[ball.physicsBody applyImpulse:ballKick];
     }
     return self;
-}
-
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    /* Called when a touch begins */
-    
-    for (UITouch *touch in touches) {
-        CGPoint location = [touch locationInNode:self];
-        
-        SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
-        
-        sprite.position = location;
-        
-        SKAction *action = [SKAction rotateByAngle:M_PI duration:1];
-        
-        [sprite runAction:[SKAction repeatActionForever:action]];
-        
-        [self addChild:sprite];
-    }
 }
 
 -(void)update:(CFTimeInterval)currentTime {

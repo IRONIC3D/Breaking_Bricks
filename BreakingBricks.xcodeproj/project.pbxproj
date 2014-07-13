@@ -24,6 +24,12 @@
 		AE7CD0D11972755B00992C0B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7CD0AC1972755B00992C0B /* UIKit.framework */; };
 		AE7CD0D91972755B00992C0B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AE7CD0D71972755B00992C0B /* InfoPlist.strings */; };
 		AE7CD0DB1972755B00992C0B /* BreakingBricksTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AE7CD0DA1972755B00992C0B /* BreakingBricksTests.m */; };
+		AE7CD0EA1972758500992C0B /* ball.png in Resources */ = {isa = PBXBuildFile; fileRef = AE7CD0E41972758500992C0B /* ball.png */; };
+		AE7CD0EB1972758500992C0B /* ball@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE7CD0E51972758500992C0B /* ball@2x.png */; };
+		AE7CD0EC1972758500992C0B /* brick.png in Resources */ = {isa = PBXBuildFile; fileRef = AE7CD0E61972758500992C0B /* brick.png */; };
+		AE7CD0ED1972758500992C0B /* brick@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE7CD0E71972758500992C0B /* brick@2x.png */; };
+		AE7CD0EE1972758500992C0B /* paddle.png in Resources */ = {isa = PBXBuildFile; fileRef = AE7CD0E81972758500992C0B /* paddle.png */; };
+		AE7CD0EF1972758500992C0B /* paddle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AE7CD0E91972758500992C0B /* paddle@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +66,12 @@
 		AE7CD0D61972755B00992C0B /* BreakingBricksTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BreakingBricksTests-Info.plist"; sourceTree = "<group>"; };
 		AE7CD0D81972755B00992C0B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AE7CD0DA1972755B00992C0B /* BreakingBricksTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BreakingBricksTests.m; sourceTree = "<group>"; };
+		AE7CD0E41972758500992C0B /* ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball.png; sourceTree = "<group>"; };
+		AE7CD0E51972758500992C0B /* ball@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ball@2x.png"; sourceTree = "<group>"; };
+		AE7CD0E61972758500992C0B /* brick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brick.png; sourceTree = "<group>"; };
+		AE7CD0E71972758500992C0B /* brick@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "brick@2x.png"; sourceTree = "<group>"; };
+		AE7CD0E81972758500992C0B /* paddle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paddle.png; sourceTree = "<group>"; };
+		AE7CD0E91972758500992C0B /* paddle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "paddle@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +102,12 @@
 		AE7CD09C1972755B00992C0B = {
 			isa = PBXGroup;
 			children = (
+				AE7CD0E41972758500992C0B /* ball.png */,
+				AE7CD0E51972758500992C0B /* ball@2x.png */,
+				AE7CD0E61972758500992C0B /* brick.png */,
+				AE7CD0E71972758500992C0B /* brick@2x.png */,
+				AE7CD0E81972758500992C0B /* paddle.png */,
+				AE7CD0E91972758500992C0B /* paddle@2x.png */,
 				AE7CD0B01972755B00992C0B /* BreakingBricks */,
 				AE7CD0D41972755B00992C0B /* BreakingBricksTests */,
 				AE7CD0A71972755B00992C0B /* Frameworks */,
@@ -241,6 +259,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE7CD0B51972755B00992C0B /* InfoPlist.strings in Resources */,
+				AE7CD0EB1972758500992C0B /* ball@2x.png in Resources */,
+				AE7CD0EC1972758500992C0B /* brick.png in Resources */,
+				AE7CD0EA1972758500992C0B /* ball.png in Resources */,
+				AE7CD0EE1972758500992C0B /* paddle.png in Resources */,
+				AE7CD0ED1972758500992C0B /* brick@2x.png in Resources */,
+				AE7CD0EF1972758500992C0B /* paddle@2x.png in Resources */,
 				AE7CD0C81972755B00992C0B /* Images.xcassets in Resources */,
 				AE7CD0C61972755B00992C0B /* Spaceship.png in Resources */,
 				AE7CD0BE1972755B00992C0B /* Main.storyboard in Resources */,
