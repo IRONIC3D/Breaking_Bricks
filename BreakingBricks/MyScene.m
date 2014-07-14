@@ -38,6 +38,22 @@
 	[ball.physicsBody applyImpulse:ballKick];
 }
 
+- (void)addBricks:(CGSize)size {
+    for (int i = 0; i < 4; i++) {
+        SKSpriteNode *brick = [SKSpriteNode spriteNodeWithImageNamed:@"brick"];
+        
+        // add a static physics body
+        brick.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:brick.frame.size];
+        brick.physicsBody.dynamic = NO;
+        
+        int xPos = size.width / 5 * (i+1);
+        int yPos = size.height - 50;
+        brick.position = CGPointMake(xPos, yPos);
+        
+        [self addChild:brick];
+    }
+}
+
 - (void)addPlayer:(CGSize)size {
 	// Create paddle sprite
 	self.paddle = [SKSpriteNode spriteNodeWithImageNamed:@"paddle"];
@@ -59,8 +75,9 @@
 		// change gravity settings of the physics world
 		self.physicsWorld.gravity = CGVectorMake(0, -0.2);
 		
-		[self addBall:size];
-		[self addPlayer:size];
+        [self addBall:size];
+        [self addPlayer:size];
+        [self addBricks:size];
     }
     return self;
 }
