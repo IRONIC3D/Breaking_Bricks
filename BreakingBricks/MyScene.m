@@ -7,6 +7,7 @@
 //
 
 #import "MyScene.h"
+#import "EndScene.h"
 
 @interface MyScene ()
 
@@ -14,11 +15,11 @@
 
 @end
 
-static const uint32_t ballCategory      = 0x1;      // 1 or 00000000000000000000000000000001
-static const uint32_t brickCategory     = 0x1 << 1; // 2 or 00000000000000000000000000000010
-static const uint32_t paddleCategory    = 0x1 << 2; // 4 or 00000000000000000000000000000100
-static const uint32_t edgeCategory      = 0x1 << 3; // 8 or 00000000000000000000000000001000
-static const uint32_t bottomEdgeCategory = 0x1 << 4;// 16 or 00000000000000000000000000010000
+static const uint32_t ballCategory          = 0x1;      // 1    or 00000000000000000000000000000001
+static const uint32_t brickCategory         = 0x1 << 1; // 2    or 00000000000000000000000000000010
+static const uint32_t paddleCategory        = 0x1 << 2; // 4    or 00000000000000000000000000000100
+static const uint32_t edgeCategory          = 0x1 << 3; // 8    or 00000000000000000000000000001000
+static const uint32_t bottomEdgeCategory    = 0x1 << 4; // 16   or 00000000000000000000000000010000
 
 @implementation MyScene {
     SKAction *playBlip;
@@ -50,12 +51,8 @@ static const uint32_t bottomEdgeCategory = 0x1 << 4;// 16 or 0000000000000000000
     }
     
     if (notTheBall.categoryBitMask == bottomEdgeCategory) {
-        SKLabelNode *label = [SKLabelNode labelNodeWithFontNamed:@"Futura Medium"];
-        label.text = @"You Lose!";
-        label.fontColor = [SKColor blackColor];
-        label.fontSize = 50;
-        label.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
-        [self addChild:label];
+        EndScene *end = [EndScene sceneWithSize:self.size];
+        [self.view presentScene:end];
     }
 }
 
