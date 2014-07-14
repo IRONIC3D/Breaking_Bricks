@@ -52,7 +52,7 @@ static const uint32_t bottomEdgeCategory    = 0x1 << 4; // 16   or 0000000000000
     
     if (notTheBall.categoryBitMask == bottomEdgeCategory) {
         EndScene *end = [EndScene sceneWithSize:self.size];
-        [self.view presentScene:end];
+        [self.view presentScene:end transition:[SKTransition doorsCloseHorizontalWithDuration:0.5]];
     }
 }
 
