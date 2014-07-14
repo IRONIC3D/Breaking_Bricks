@@ -18,6 +18,7 @@ static const uint32_t ballCategory      = 0x1;      // 1 or 00000000000000000000
 static const uint32_t brickCategory     = 0x1 << 1; // 2 or 00000000000000000000000000000010
 static const uint32_t paddleCategory    = 0x1 << 2; // 4 or 00000000000000000000000000000100
 static const uint32_t edgeCategory      = 0x1 << 3; // 8 or 00000000000000000000000000001000
+static const uint32_t bottomEdgeCategory = 0x1 << 4;// 16 or 00000000000000000000000000010000
 
 @implementation MyScene {
     SKAction *playBlip;
@@ -47,6 +48,22 @@ static const uint32_t edgeCategory      = 0x1 << 3; // 8 or 00000000000000000000
         
         [self runAction:playBlip];
     }
+    
+    if (notTheBall.categoryBitMask == bottomEdgeCategory) {
+        SKLabelNode *label = [SKLabelNode labelNodeWithFontNamed:@"Futura Medium"];
+        label.text = @"You Lose!";
+        label.fontColor = [SKColor blackColor];
+        label.fontSize = 50;
+        label.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
+        [self addChild:label];
+    }
+}
+
+- (void)addBottomEdge:(CGSize)size {
+    SKNode *bottomEdge = [SKNode node];
+    bottomEdge.physicsBody = [SKPhysicsBody bodyWithEdgeFromPoint:CGPointMake(0, 1) toPoint:CGPointMake(size.width, 1)];
+    bottomEdge.physicsBody.categoryBitMask = bottomEdgeCategory;
+    [self addChild:bottomEdge];
 }
 
 - (void)addBall:(CGSize)size {
@@ -62,7 +79,7 @@ static const uint32_t edgeCategory      = 0x1 << 3; // 8 or 00000000000000000000
     ball.physicsBody.linearDamping = 0;
     ball.physicsBody.restitution = 1;
     ball.physicsBody.categoryBitMask = ballCategory;
-    ball.physicsBody.contactTestBitMask = brickCategory | paddleCategory;
+    ball.physicsBody.contactTestBitMask = brickCategory | paddleCategory | bottomEdgeCategory;
 	
     // Add the sprite node to the scene
     [self addChild:ball];
@@ -120,6 +137,7 @@ static const uint32_t edgeCategory      = 0x1 << 3; // 8 or 00000000000000000000
         [self addBall:size];
         [self addPlayer:size];
         [self addBricks:size];
+        [self addBottomEdge:size];
     }
     return self;
 }
